@@ -57,7 +57,6 @@ class GradientDescentLinearRegression(LinearRegression):
         temp = np.expand_dims(temp, axis=1)
         X = np.hstack((temp, X))
         for _ in tqdm(range(epochs)):
-            # print(X.shape)
             # print(y.shape)
             # print((X@self.t).shape)
             dl = np.mean(-X.T @ (y - (X @ self.t)))
