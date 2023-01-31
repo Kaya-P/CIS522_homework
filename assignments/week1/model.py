@@ -9,19 +9,22 @@ class LinearRegression:
     b: float
 
     def __init__(self):
+        """this is init"""
         self.w = 0
         self.b = 0
         # raise NotImplementedError()
 
     def fit(self, X, y):
+        """this is fit _ 1"""
         temp = np.ones(len(X))
         temp = np.expand_dims(temp, axis=1)
         X = np.hstack((temp, X))
-        print(X.shape)
+        # print(X.shape)
         w = np.linalg.inv(X.T @ X) @ (X.T @ y)
         self.b = w[0]
         self.w = w[1:]
         self.t = w
+
         # print(w.shape)
         # print(self.b.shape)
         # print(self.w.shape)
@@ -30,6 +33,7 @@ class LinearRegression:
         # raise NotImplementedError()
 
     def predict(self, X):
+        """this is predict _ 1"""
         temp = np.ones(len(X))
         temp = np.expand_dims(temp, axis=1)
         X = np.hstack((temp, X))
@@ -51,9 +55,11 @@ class GradientDescentLinearRegression(LinearRegression):
     def fit(
         self, X: np.ndarray, y: np.ndarray, lr: float = 0.01, epochs: int = 1000
     ) -> None:
+        """this is fit _1"""
         self.t = np.random.rand(
             9,
         )
+
         temp = np.ones(len(X))
         temp = np.expand_dims(temp, axis=1)
         X = np.hstack((temp, X))
