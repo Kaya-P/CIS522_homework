@@ -35,7 +35,7 @@ class LinearRegression:
         # print(X.shape)
         # raise NotImplementedError()
 
-    def predict(self, X) -> np.ndarray:
+    def predict(self, X: np.ndarray) -> np.ndarray:
         """this is predict _ 1"""
         temp = np.ones(len(X))
         temp = np.expand_dims(temp, axis=1)
