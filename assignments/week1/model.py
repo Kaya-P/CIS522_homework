@@ -1,5 +1,5 @@
 import numpy as np
-from tqdm import tqdm
+# from tqdm import tqdm
 
 
 class LinearRegression:
@@ -56,7 +56,7 @@ class GradientDescentLinearRegression(LinearRegression):
         temp = np.ones(len(X))
         temp = np.expand_dims(temp, axis=1)
         X = np.hstack((temp, X))
-        for _ in tqdm(range(epochs)):
+        for _ in range(epochs):
             # print((X@self.t).shape)
             dl = np.mean(-X.T @ (y - (X @ self.t)))
             # print(dl.shape)
