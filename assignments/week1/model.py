@@ -17,7 +17,7 @@ class LinearRegression:
         self.b = 0
         # raise NotImplementedError()
 
-    def fit(self, X, y) -> None:
+    def fit(self, X: np.ndarray, y: np.ndarray) -> None:
         """this is fit _ 1"""
         temp = np.ones(len(X))
         temp = np.expand_dims(temp, axis=1)
