@@ -10,7 +10,7 @@ class LinearRegression:
 
     def __init__(self):
         self.w = 0
-        # self.b
+        self.b = 0
         # raise NotImplementedError()
 
     def fit(self, X, y):
