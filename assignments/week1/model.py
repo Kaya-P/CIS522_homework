@@ -4,6 +4,9 @@ import numpy as np
 
 
 class LinearRegression:
+    """
+    A linear regression model that does not uses gradient descent to fit the model.
+    """
 
     w: np.ndarray
     b: float
@@ -14,7 +17,7 @@ class LinearRegression:
         self.b = 0
         # raise NotImplementedError()
 
-    def fit(self, X, y):
+    def fit(self, X, y) -> None:
         """this is fit _ 1"""
         temp = np.ones(len(X))
         temp = np.expand_dims(temp, axis=1)
@@ -32,7 +35,7 @@ class LinearRegression:
         # print(X.shape)
         # raise NotImplementedError()
 
-    def predict(self, X):
+    def predict(self, X) -> np.ndarray:
         """this is predict _ 1"""
         temp = np.ones(len(X))
         temp = np.expand_dims(temp, axis=1)
@@ -57,7 +60,7 @@ class GradientDescentLinearRegression(LinearRegression):
     ) -> None:
         """this is fit _1"""
         self.t = np.random.rand(
-            9,
+            X.shape[1] + 1,
         )
 
         temp = np.ones(len(X))
@@ -65,6 +68,7 @@ class GradientDescentLinearRegression(LinearRegression):
         X = np.hstack((temp, X))
         for _ in range(epochs):
             # print((X@self.t).shape)
+            # print((-X.T @ (y - (X @ self.t))).shape)
             dl = np.mean(-X.T @ (y - (X @ self.t)))
             # print(dl.shape)
             self.t = self.t - (lr * np.clip(dl, -2, 2))
