@@ -19,7 +19,7 @@ def create_model(input_dim: int, output_dim: int) -> MLP:
         input_dim,
         500,
         output_dim,
-        3,
+        5,
         torch.nn.LeakyReLU(),
         torch.nn.init.xavier_uniform_,
     )
