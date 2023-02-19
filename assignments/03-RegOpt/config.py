@@ -2,7 +2,7 @@ from typing import Callable
 import torch
 import torch.optim
 import torch.nn as nn
-from torchvision.transforms import Compose, ToTensor
+from torchvision.transforms import Compose, ToTensor, Normalize
 
 # Normalize
 
@@ -14,7 +14,7 @@ class CONFIG:
 
     """config 1"""
     batch_size = 64
-    num_epochs = 6
+    num_epochs = 8
     initial_learning_rate = 0.001
     initial_weight_decay = initial_learning_rate / num_epochs
 
@@ -36,7 +36,5 @@ class CONFIG:
     )
 
     transforms = Compose(
-        [
-            ToTensor(),
-        ]
+        [ToTensor(), Normalize(mean=[0.485, 0.456, 0.4], std=[0.229, 0.224, 0.2])]
     )
