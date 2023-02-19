@@ -2,10 +2,6 @@ from typing import List
 import math
 from torch.optim.lr_scheduler import _LRScheduler
 
-from typing import List
-
-from torch.optim.lr_scheduler import _LRScheduler
-
 
 class CustomLRScheduler(_LRScheduler):
     """
@@ -52,31 +48,17 @@ class CustomLRScheduler(_LRScheduler):
         """config 2"""
         # return [i - (i - 1) * 0.0001 for i in self.base_lrs]
 
+        eta_min = 0.001
+        T_i = len(self.base_lrs)
         num_lr = len(self.base_lrs)
         steps = int(num_lr / self.num_epochs)
-        self.T_max = num_lr * self.num_epochs
-        if self.last_epoch == 0:
-            return [g["lr"] for g in self.optimizer.param_groups]
-        elif self._step_count == 1 and self.last_epoch > 0:
-            return [
-                self.eta_min
-                + (base_lr - self.eta_min)
-                * (1 + math.cos((self.last_epoch) * math.pi / self.T_max))
-                / 2
-                for base_lr, _ in zip(self.base_lrs, self.optimizer.param_groups)
-            ]
-        elif (self.last_epoch - 1 - self.T_max) % (2 * self.T_max) == 0:
-            return [
-                group["lr"]
-                + (base_lr - self.eta_min) * (1 - math.cos(math.pi / self.T_max)) / 2
-                for base_lr, group in zip(self.base_lrs, self.optimizer.param_groups)
-            ]
         return [
-            (1 + math.cos(math.pi * self.last_epoch / self.T_max))
-            / (1 + math.cos(math.pi * (self.last_epoch - 1) / self.T_max))
-            * (group["lr"] - self.eta_min)
-            + self.eta_min
-            for group in self.optimizer.param_groups
+            eta_min
+            + (self.initial_learning_rate - eta_min)
+            * (1 + math.cos(math.pi * T_cur / T_i))
+            / 2
+            for T_cur in range(1, self.num_epochs + 1)
+            for i in range(steps)
         ]
 
         # def _get_closed_form_lr(self):
