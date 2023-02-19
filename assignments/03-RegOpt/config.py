@@ -2,7 +2,9 @@ from typing import Callable
 import torch
 import torch.optim
 import torch.nn as nn
-from torchvision.transforms import Compose, Normalize, ToTensor
+from torchvision.transforms import Compose, ToTensor
+
+# Normalize
 
 
 class CONFIG:
@@ -10,10 +12,11 @@ class CONFIG:
     Our configuration of a scheduler
     """
 
+    """config 1"""
     batch_size = 64
-    num_epochs = 8
+    num_epochs = 6
     initial_learning_rate = 0.001
-    initial_weight_decay = 0
+    initial_weight_decay = initial_learning_rate / num_epochs
 
     # You can pass arguments to the learning rate scheduler
     # constructor here.
@@ -32,4 +35,8 @@ class CONFIG:
         weight_decay=CONFIG.initial_weight_decay,
     )
 
-    transforms = Compose([ToTensor(), Normalize(0, 1)])
+    transforms = Compose(
+        [
+            ToTensor(),
+        ]
+    )
