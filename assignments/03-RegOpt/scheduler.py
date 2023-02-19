@@ -32,6 +32,8 @@ class CustomLRScheduler(_LRScheduler):
         self.num_epochs = num_epochs
         self.initial_learning_rate = initial_learning_rate
         self.initial_weight_decay = initial_weight_decay
+        self.eta_min = 0.00001
+
         super(CustomLRScheduler, self).__init__(optimizer, last_epoch)
 
     def get_lr(self) -> List[float]:
@@ -52,11 +54,20 @@ class CustomLRScheduler(_LRScheduler):
 
         num_lr = len(self.base_lrs)
         steps = int(num_lr / self.num_epochs)
+        self.T_max = num_lr * self.num_epochs
+
         return [
+            self.eta_min
+            + (base_lr - self.eta_min)
+            * (1 + math.cos((self.last_epoch) * math.pi / self.T_max))
+            / 2
+            for base_lr, group in zip(self.base_lrs, self.optimizer.param_groups)
+        ]
+        """return [
             self.initial_learning_rate * math.exp(-0.1 * e)
             for e in range(1, self.num_epochs + 1)
             for i in range(steps)
-        ]
+        ]"""
 
         """
         num_lr = len(self.base_lrs)
