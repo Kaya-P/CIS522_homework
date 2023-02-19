@@ -9,7 +9,9 @@
     ],
     "sources": [
         "Classwork/Discussion",
+        "Hainui's suggetsions on slack",
         "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate",
-        "https://pytorch.org/docs/stable/_modules/torch/optim/lr_scheduler.html"
+        "https://pytorch.org/docs/stable/_modules/torch/optim/lr_scheduler.html",
+        "https://pytorch.org/docs/stable/_modules/torch/optim/lr_scheduler.html#CosineAnnealingLR"
     ]
 }
