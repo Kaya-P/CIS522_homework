@@ -7,6 +7,7 @@ class Model(torch.nn.Module):
     """
     A simple CNN with 2 convolutional layers and 2 fully-connected layers.
     """
+
     def __init__(self, num_channels: int, num_classes: int) -> None:
         super(Model, self).__init__()
         """
@@ -24,7 +25,7 @@ class Model(torch.nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
         forward function
-         """
+        """
         x = self.pool(torch.nn.functional.relu(self.conv1(x)))
         x = self.pool(torch.nn.functional.relu(self.conv2(x)))
         x = x.view(-1, 16 * 5 * 5)
