@@ -1,12 +1,13 @@
 {
     "assignment_name": "Convolutions",
     "contributors": [
-        {
-            "name": "Change this to your name",
-            "pennkey": "MyPennKey"
-        }
+        {"name": "Sindhura Mente", 
+        "pennkey": "smente"
+        },
+        {"name": "Kaya Panchalingam", 
+        "pennkey": "kayap"}
     ],
     "sources": [
-        "Don't forget to list your sources/attribution here!"
+        "classwork"
     ]
 }

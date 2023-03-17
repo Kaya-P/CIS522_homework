@@ -6,6 +6,10 @@ from torchvision.transforms import Compose, ToTensor
 
 
 class CONFIG:
+    """
+    config fucntion
+    """
+
     batch_size = 8
     num_epochs = 8
 
