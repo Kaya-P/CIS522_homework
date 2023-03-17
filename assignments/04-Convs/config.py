@@ -3,8 +3,8 @@ import torch
 import torch.optim
 import torch.nn as nn
 
-# from torchvision.transforms import Compose, ToTensor
-from torchvision.transforms import Compose, ToTensor, Normalize
+# from torchvision.transforms import Compose, ToTensor,, Normalize
+from torchvision.transforms import Compose, ToTensor
 
 
 class CONFIG:
