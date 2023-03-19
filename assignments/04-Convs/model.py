@@ -16,6 +16,7 @@ class Model(torch.nn.Module):
         self.conv1 = torch.nn.Conv2d(num_channels, 28, 5)
         # self.pool = torch.nn.MaxPool2d(2, 2)
         # self.conv2 = torch.nn.Conv2d(4, 16, 5)
+        # e
         self.fc1 = torch.nn.Linear(28 * 28 * 28, num_classes)
         # self.fc3 = torch.nn.Linear(120, num_classes)
         # slef d
