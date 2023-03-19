@@ -18,7 +18,7 @@ class Model(torch.nn.Module):
         # self.conv2 = torch.nn.Conv2d(4, 16, 5)
         self.fc1 = torch.nn.Linear(28 * 28 * 28, num_classes)
         # self.fc3 = torch.nn.Linear(120, num_classes)
-        # slef
+        # slef d
         # 3,chaneel, 10 classes
 
     # 16, 28,28 and 16,5
