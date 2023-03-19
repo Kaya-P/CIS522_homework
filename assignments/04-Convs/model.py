@@ -13,9 +13,9 @@ class Model(torch.nn.Module):
         """
         init function
          """
-        self.conv1 = torch.nn.Conv2d(num_channels, 6, 5)
+        self.conv1 = torch.nn.Conv2d(num_channels, 4, 5)
         # self.pool = torch.nn.MaxPool2d(2, 2)
-        self.conv2 = torch.nn.Conv2d(6, 16, 5)
+        self.conv2 = torch.nn.Conv2d(4, 16, 5)
         self.fc1 = torch.nn.Linear(16 * 24 * 24, num_classes)
         # self.fc3 = torch.nn.Linear(120, num_classes)
 
@@ -26,6 +26,7 @@ class Model(torch.nn.Module):
         forward function
         """
         x = torch.nn.functional.relu(self.conv1(x))
+        # print(x.shape)
         x = torch.nn.functional.relu(self.conv2(x))
         # print(x.shape)
         x = x.view(-1, 16 * 24 * 24)
