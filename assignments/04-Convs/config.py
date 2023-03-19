@@ -12,7 +12,7 @@ class CONFIG:
     config fucntion
     """
 
-    batch_size = 128
+    batch_size = 256
     num_epochs = 8
 
     optimizer_factory: Callable[

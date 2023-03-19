@@ -30,8 +30,5 @@ class Model(torch.nn.Module):
         x = torch.nn.functional.relu(self.conv2(x))
         # print(x.shape)
         x = x.view(-1, 16 * 24 * 24)
-        # x = torch.nn.functional.relu(self.fc1(x))
-
-        # x = self.fc3(x)
         x = self.fc1(x)
         return x
