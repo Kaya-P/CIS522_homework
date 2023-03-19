@@ -13,13 +13,13 @@ class Model(torch.nn.Module):
         """
         init function
          """
-        self.conv1 = torch.nn.Conv2d(num_channels, 28, 5)
+        self.conv1 = torch.nn.Conv2d(num_channels, 28, 7)
         # self.pool = torch.nn.MaxPool2d(2, 2)
         # self.conv2 = torch.nn.Conv2d(4, 16, 5)
         # e
-        self.fc1 = torch.nn.Linear(28 * 28 * 28, num_classes)
+        self.fc1 = torch.nn.Linear(28 * 26 * 26, num_classes)
         # self.fc3 = torch.nn.Linear(120, num_classes)
-        # slef d
+        # slef d v
         # 3,chaneel, 10 classes
 
     # 16, 28,28 and 16,5
@@ -31,6 +31,6 @@ class Model(torch.nn.Module):
         # print(x.shape)
         # x = torch.nn.functional.relu(self.conv2(x))
         # print(x.shape)
-        x = x.view(-1, 28 * 28 * 28)
+        x = x.view(-1, 28 * 26 * 26)
         x = self.fc1(x)
         return x
