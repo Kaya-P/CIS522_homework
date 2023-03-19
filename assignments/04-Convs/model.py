@@ -18,7 +18,7 @@ class Model(torch.nn.Module):
         self.conv2 = torch.nn.Conv2d(4, 16, 5)
         self.fc1 = torch.nn.Linear(16 * 24 * 24, num_classes)
         # self.fc3 = torch.nn.Linear(120, num_classes)
-
+        # slef
         # 3,chaneel, 10 classes
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
